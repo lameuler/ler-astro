@@ -1,6 +1,6 @@
 {
   "name": "@lameuler/ler-astro",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "type": "module",
   "exports": {
     ".": "./index.ts",
@@ -25,5 +25,9 @@
   },
   "description": "Astro components I use across some of my personal projects and sites.",
   "author": "Lam Eu Ler",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/lameuler/ler-astro",
+  "bugs": {
+    "url": "https://github.com/lameuler/ler-astro/issues"
+  }
 }
