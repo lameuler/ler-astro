@@ -15,25 +15,30 @@
 </div>
 
 <script>
-    const update = () => {
-        const dark = document.documentElement.classList.contains('dark')
+    const update = (dark: boolean) => {
+        if (dark) document.documentElement.classList.add('dark')
+        else document.documentElement.classList.remove('dark')
         localStorage.setItem('appearance:dark', dark+':'+mediaDark.matches)
     }
 
     let mediaDark = matchMedia('(prefers-color-scheme: dark)')
     mediaDark.addEventListener('change', ()=>{
-        if (mediaDark.matches) document.documentElement.classList.add('dark')
-        else document.documentElement.classList.remove('dark')
-        update()
+        update(mediaDark.matches)
+    })
+    window.addEventListener('storage', ()=>{
+        const stored = (localStorage.getItem('appearance:dark') || '').split(':')
+        if (stored[0] === 'true' || stored[0] === 'false') {
+            update(stored[0] === 'true')
+        } else {
+            update(document.documentElement.classList.contains('dark'))
+        }
     })
     
     document.getElementById('theme-switch-light')?.addEventListener('click', ()=>{
-        document.documentElement.classList.add('dark')
-        update()
+        update(true)
     })
     document.getElementById('theme-switch-dark')?.addEventListener('click', ()=>{
-        document.documentElement.classList.remove('dark')
-        update()
+        update(false)
     })
 </script>
 
