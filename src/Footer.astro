@@ -44,7 +44,13 @@ const { line } = Astro.props
                 <slot name="right"/>
             </div>
             <div class="text-gray-600 dark:text-gray-300 opacity-80 p-0.5">
-                <slot name="license"/> &copy; <span class="year">2024</span> Lam Eu Ler
+                <slot name="license"/> &copy; <span>
+                    { new Date().getFullYear() }
+                    <script is:inline>
+                        const parent = document.currentScript?.parentElement
+                        if (parent) parent.innerText = new Date().getFullYear()
+                    </script>
+                </span> Lam Eu Ler
             </div>
         </div>
     </div>
