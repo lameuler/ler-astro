@@ -1,18 +1,21 @@
 ---
 interface Props {
 	title?: string
+    description?: string
     sep?: string
     site?: string
 }
 
-const { title, site, sep } = Astro.props;
+const { title, description, site, sep } = Astro.props;
 
 const titleText = (title || '') + (title && site ? (sep ?? ' – ') : '') + (site || '')
 ---
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    { description &&
+        <meta name="description" content={description}/>
+    }
     <meta name="viewport" content="width=device-width" />
     <slot/>
     <title>{titleText}</title>
