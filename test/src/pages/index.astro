@@ -1,0 +1,57 @@
+---
+import { Head, Header, Footer, ThemeSwitch } from '@lameuler/ler-astro'
+import '@lameuler/ler-astro/icon.css'
+---
+
+<html lang="en">
+	<Head title="demo site" site="ler.local"/>
+	<body class="max-w-7xl grid grid-rows-[auto_1fr_auto] mx-auto min-h-full">
+		<Header>
+			<a>ler.local</a>
+			<ThemeSwitch>
+				<!-- <img slot="light" class="w-10 h-10 hover:drop-shadow-xl hover:scale-110 active:scale-105 transition-all" src="/icons/theme-light.png" width="40" height="40" alt=""/> -->
+    			<!-- <img slot="dark" class="w-10 h-10 hover:drop-shadow-xl hover:scale-110 active:scale-105 transition-all" src="/icons/theme-dark.png" width="40" height="40" alt=""/> -->
+			</ThemeSwitch>
+		</Header>
+		<main>
+			<h1>Astro</h1>
+		</main>
+		<Footer>
+			<div slot="left">
+				hi<br>hi
+			</div>
+			<div slot="left" class="text-gray-600 dark:text-gray-300 opacity-80 p-0.5">
+                Made with <a href="https://astro.build" class="underline">Astro</a>, <a href="https://svelte.dev" class="underline">Svelte</a> and <a href="https://tailwindcss.com" class="underline">Tailwind</a>.
+			</div>
+			<div slot="left" class="text-gray-600 dark:text-gray-300 opacity-80 p-0.5">
+                Last updated Jun 2024
+			</div>
+			<div slot="right" class="text-gray-600 dark:text-gray-300 opacity-80 p-0.5 mt-auto">
+                <a href="https://github.com/lameuler/ler-astro" class="underline">View on GitHub</a>
+				-
+				<a class="hover:underline" href="https://github.com/lameuler/ler-astro/commit/7ee20b2b4d0ad36eebb1760368835669cc0307dd"><code>7ee20b2</code></a>
+            </div>
+		</Footer>
+	</body>
+</html>
+
+<style is:global>
+	html {
+		height: 100%;
+	}
+	html.dark {
+		color-scheme: dark;
+	}
+	body {
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='%2364748b40' cx='48' cy='48' r='6'/%3E%3C/svg%3E");
+		background-size: 1.5rem;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url(https://eu.ler.sg/assets/_fonts/lexend-latin.woff2) format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+</style>
