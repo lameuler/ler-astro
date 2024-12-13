@@ -91,10 +91,10 @@ const { line } = Astro.props
         gap: 0.2rem;
         color: rgba(var(--text), 0.65);
     }
-    .col :global(a) {
+    :where(.col) :global(a) {
         text-decoration: underline;
     }
-    .col :global(a:hover) {
+    :where(.col) :global(a:hover) {
         color: rgba(var(--text), 0.9);
     }
 </style>
