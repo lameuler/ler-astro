@@ -10,8 +10,8 @@ import Layout from '../layout/Layout.astro'
 		<Header>
 			<a href="/">ler.local</a>
 			<ThemeSwitch>
-				<img slot="light" class="w-10 h-10 hover:drop-shadow-xl hover:scale-110 active:scale-105 transition-all" src="/icons/theme-light.png" width="40" height="40" alt=""/>
-    			<img slot="dark" class="w-10 h-10 hover:drop-shadow-xl hover:scale-110 active:scale-105 transition-all" src="/icons/theme-dark.png" width="40" height="40" alt=""/>
+				<img slot="light" class="hover:drop-shadow-xl transition-all" src="/icons/theme-light.png" width="40" height="40" alt=""/>
+    			<img slot="dark" class="hover:drop-shadow-xl transition-all" src="/icons/theme-dark.png" width="40" height="40" alt=""/>
 			</ThemeSwitch>
 		</Header>
 		<main>
@@ -52,5 +52,16 @@ import Layout from '../layout/Layout.astro'
 <style>
 	a {
 		text-decoration: underline;
+	}
+	img {
+		width: 2.5rem;
+		height: 2.5rem;
+		transition: scale ease-in-out 150ms;
+	}
+	img:hover {
+		scale: 110%;
+	}
+	img:hover {
+		scale: 105%;
 	}
 </style>
