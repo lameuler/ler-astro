@@ -1,4 +1,11 @@
-<div>
+---
+interface Props {
+    scale?: boolean
+}
+const { scale } = Astro.props
+---
+
+<div class={ scale ? 'scale' : '' }>
     <button id="theme-switch-light" aria-label="Switch to dark theme">
         { Astro.slots.has('light') ? <slot name="light"/> : <svg class="icon" viewBox="0 0 24 24">
             <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
@@ -26,6 +33,15 @@
     }
     div:active svg {
         opacity: 0.9;
+    }
+    div.scale button {
+        transition: scale 150ms ease-out;
+    }
+    div.scale:hover button {
+        scale: 110%;
+    }
+    div.scale:active button {
+        scale: 100%;
     }
     #theme-switch-light,
     :global(.dark) #theme-switch-dark {
