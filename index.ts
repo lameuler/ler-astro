@@ -6,5 +6,6 @@ import HeadImgLinks from './src/HeadImgLinks.astro';
 import Header from './src/Header.astro';
 import Footer from './src/Footer.astro';
 import ThemeSwitch from './src/ThemeSwitch.astro';
+import Year from './src/Year.astro';
 
-export { Head, HeadImgLinks, Header, Footer, ThemeSwitch };
+export { Head, HeadImgLinks, Header, Footer, ThemeSwitch, Year };

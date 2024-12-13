@@ -1,0 +1,7 @@
+<span>
+    { new Date().getFullYear() }
+    <script is:inline>
+        const parent = document.currentScript?.parentElement
+        if (parent) parent.textContent = new Date().getFullYear()
+    </script>
+</span>

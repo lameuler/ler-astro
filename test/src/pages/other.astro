@@ -6,13 +6,10 @@ import Layout from '../layout/Layout.astro'
 
 <Layout>
 	<Head title="demo site" site="ler.local"/>
-	<body>
+	<body class="">
 		<Header>
 			<a href="/">ler.local</a>
-			<ThemeSwitch>
-				<img slot="light" class="w-10 h-10 hover:drop-shadow-xl hover:scale-110 active:scale-105 transition-all" src="/icons/theme-light.png" width="40" height="40" alt=""/>
-    			<img slot="dark" class="w-10 h-10 hover:drop-shadow-xl hover:scale-110 active:scale-105 transition-all" src="/icons/theme-dark.png" width="40" height="40" alt=""/>
-			</ThemeSwitch>
+			<ThemeSwitch/>
 		</Header>
 		<main>
 			<h1>Astro</h1>
@@ -21,13 +18,13 @@ import Layout from '../layout/Layout.astro'
 			<div slot="left">
 				hi<br>hi
 			</div>
-			<div slot="left" class="">
+			<div slot="left">
                 Made with <a href="https://astro.build" class="underline">Astro</a>, <a href="https://svelte.dev" class="underline">Svelte</a> and <a href="https://tailwindcss.com" class="underline">Tailwind</a>.
 			</div>
-			<div slot="left" class="">
+			<div slot="left">
                 Last updated Jun 2024
 			</div>
-			<div slot="right" class="">
+			<div slot="right">
                 <a href="https://github.com/lameuler/ler-astro" class="underline">View on GitHub</a>
 				-
 				<a class="hover:underline" href="https://github.com/lameuler/ler-astro/commit/7ee20b2b4d0ad36eebb1760368835669cc0307dd"><code>7ee20b2</code></a>
@@ -39,13 +36,11 @@ import Layout from '../layout/Layout.astro'
 
 <style is:global>
 	html {
-		background-color: rgb(248 250 252);
+		--text: 20, 0, 40;
+		background-color: rgb(226, 217, 241);
 	}
 	html.dark {
-		background-color: rgb(15 23 42);
-	}
-	body {
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='%2364748b40' cx='48' cy='48' r='6'/%3E%3C/svg%3E");
-		background-size: 1.5rem;
+		--text: 240, 230, 250;
+    	background-color: rgb(22, 0, 51);
 	}
 </style>

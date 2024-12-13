@@ -1,63 +1,100 @@
 ---
+import Line from './internal/Line.astro'
+import Socials from './internal/Socials.astro'
+import Year from './Year.astro'
+
 interface Props {
     line?: boolean
 }
 const { line } = Astro.props
 ---
-<footer class="p-6 text-center sm:text-start">
-    { line!==false && <div class="absolute left-0 right-0 -mt-6 border-t-2 border-gray-400 dark:border-gray-600"/> }
-    <div class="sm:flex justify-between items-center mb-3 mx-auto">
-        <a href="https://eu.ler.sg" class="text-3xl flex items-center justify-center sm:justify-start gap-2">
-            <img src="https://eu.ler.sg/icons/favicon192.png" class="h-12 w-12" width="48" height="48" alt="" srcset="https://eu.ler.sg/icons/favicon96.webp 96w, https://eu.ler.sg/icons/favicon128.webp 128w, https://eu.ler.sg/icons/favicon192.webp 192w" loading="lazy"/>
-            <span class="font-medium lowercase opacity-90">Lam Eu Ler</span>
+<footer>
+    { line!==false && <Line/> }
+    <div class="row top">
+        <a href="https://eu.ler.sg">
+            <img src="https://eu.ler.sg/icons/favicon192.png" width="48" height="48" alt="" srcset="https://eu.ler.sg/icons/favicon96.webp 96w, https://eu.ler.sg/icons/favicon128.webp 128w, https://eu.ler.sg/icons/favicon192.webp 192w" loading="lazy"/>
+            <span>Lam Eu Ler</span>
         </a>
-        <div class="text-xl flex gap-2 items-center justify-center sm:justify-end p-1">
-            <a href="mailto:hello@ler.sg" aria-label="My email">
-                <svg class="icon opacity-80 h-8 w-8" viewBox="0 0 24 24">
-                    <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"/>
-                    <path d="M3 7l9 6l9 -6"/>
-                </svg>
-            </a>
-            <a href="https://github.com/lameuler" target="__blank" aria-label="GitHub">
-                <svg class="icon opacity-80 h-8 w-8" viewBox="0 0 24 24">
-                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"/>
-                </svg>
-            </a>
-            <a href="https://linkedin.com/in/lameuler" target="__blank" aria-label="LinkedIn">
-                <svg class="icon opacity-80 h-8 w-8" viewBox="0 0 24 24">
-                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/>
-                    <path d="M8 11l0 5"/>
-                    <path d="M8 8l0 .01"/>
-                    <path d="M12 16l0 -5"/>
-                    <path d="M16 16v-3a2 2 0 0 0 -4 0"/>
-                </svg>
-            </a>
-            <span class="font-medium opacity-90 text-2xl">@lameuler</span>
-        </div>
+        <Socials/>
     </div>
-    <div class="sm:flex sm:justify-between max-w-7xl mx-auto">
-        <div>
+    <div class="row">
+        <div class="col left">
             <slot name="left"/>
         </div>
-        <div class="flex flex-col sm:text-end">
-            <div class="grow flex flex-col">
-                <slot name="right"/>
-            </div>
-            <div class="text-gray-600 dark:text-gray-300 opacity-80 p-0.5">
-                <slot name="license"/> &copy; <span>
-                    { new Date().getFullYear() }
-                    <script is:inline>
-                        const parent = document.currentScript?.parentElement
-                        if (parent) parent.innerText = new Date().getFullYear()
-                    </script>
-                </span> Lam Eu Ler
-            </div>
+        <div class="col right">
+            <slot name="right"/>
+            <span>
+                <slot name="license"/> &copy; <Year/> Lam Eu Ler
+            </span>
         </div>
     </div>
 </footer>
 
 <style>
-    footer :global(a) {
-        @apply hover:text-black dark:hover:text-white
+    footer {
+        box-sizing: content-box;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+        max-width: 80rem;
+        margin: 0 auto;
+        gap: 0.5rem;
+    }
+    .top {
+        margin-bottom: 0.75rem;
+        align-items: center;
+    }
+    a {
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(var(--text), 0.9);
+    }
+    a:hover {
+        text-decoration: underline;
+        color: rgb(var(--text));
+    }
+    a img {
+        height: 3rem;
+        width: 3rem;
+    }
+    a span {
+        font-weight: 500;
+        text-transform: lowercase;
+    }
+    @media (min-width: 640px) {
+        footer {
+            text-align: start;
+        }
+        .row {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .left {
+            align-items: flex-start;
+            text-align: start;
+        }
+        .right {
+            align-items: flex-end;
+            text-align: end;
+        }
+    }
+    .col {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.2rem;
+        color: rgba(var(--text), 0.65);
+    }
+    .col :global(a) {
+        text-decoration: underline;
+    }
+    .col :global(a:hover) {
+        color: rgba(var(--text), 0.9);
     }
 </style>
