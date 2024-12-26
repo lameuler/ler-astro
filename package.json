@@ -1,10 +1,11 @@
 {
   "name": "@lameuler/ler-astro",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "type": "module",
   "exports": {
     ".": "./index.ts",
-    "./icon.css": "./src/icon.css"
+    "./icon.css": "./src/icon.css",
+    "./*.astro": "./src/*.astro"
   },
   "files": [
     "src",
