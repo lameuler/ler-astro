@@ -13,8 +13,13 @@ const titleText = (title || '') + (title && site ? (sep ?? ' – ') : '') + (sit
 
 <head>
     <meta charset="UTF-8" />
+    <meta property="og:type" content="website"/>
+    { site && <meta property="og:site_name" content={site}/>}
+    { (title || site) && <meta property="og:title" content={ title || site }/>}
+    <meta property="og:locale" content="en_SG"/>
     { description &&
         <meta name="description" content={description}/>
+        <meta property="og:description" content={description}/>
     }
     <meta name="viewport" content="width=device-width" />
     <slot/>
